@@ -27,11 +27,6 @@
             <artifactId>library</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>RELEASE</version>
-        </dependency>
     </dependencies>
 
     <build>
