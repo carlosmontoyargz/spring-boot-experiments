@@ -2,6 +2,7 @@ package org.baeldung.multimodule.application;
 
 import lombok.RequiredArgsConstructor;
 import org.baeldung.multimodule.application.job.PrinterJob;
+import org.baeldung.multimodule.application.service.CompanyService;
 import org.quartz.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Component;
 public class QuartzRunner implements CommandLineRunner
 {
 	private final Scheduler scheduler;
+	private final CompanyService companyService;
 
 	@Override
 	public void run(String... args) throws Exception
@@ -27,9 +29,13 @@ public class QuartzRunner implements CommandLineRunner
 
 	private JobDetail jobDetail()
 	{
+		JobDataMap jobDataMap = new JobDataMap();
+		jobDataMap.put("companyService", companyService);
+
 		return JobBuilder.newJob(PrinterJob.class)
 				.withIdentity("printer-job")
 				.withDescription("Test job")
+				.usingJobData(jobDataMap)
 				.storeDurably()
 				.build();
 	}
