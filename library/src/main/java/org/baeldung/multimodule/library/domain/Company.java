@@ -1,6 +1,7 @@
 package org.baeldung.multimodule.library.domain;
 
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.List;
@@ -19,6 +20,7 @@ public class Company
 	private String legalName;
 	private String address;
 
-	@OneToMany(mappedBy = "company", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "company")
+	@ToString.Exclude
 	private List<Employee> employees;
 }

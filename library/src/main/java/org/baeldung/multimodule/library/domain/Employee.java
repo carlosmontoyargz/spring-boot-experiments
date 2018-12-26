@@ -19,7 +19,6 @@ public class Employee
 	private Integer id;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@ToString.Exclude
 	private Company company;
 
 	private String firstName;

@@ -23,7 +23,7 @@ public class MultiModuleRunner implements CommandLineRunner
 	{
 		companyService.printCompany(2001);
 
-//		employeeService.printEmployee(1001);
-//		employeeService.printEmployee(1002);
+		employeeService.printEmployee(1001);
+		employeeService.printEmployee(1002);
 	}
 }

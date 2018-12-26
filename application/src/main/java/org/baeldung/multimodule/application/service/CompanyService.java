@@ -23,6 +23,7 @@ public class CompanyService
 	{
 		companyRepository
 				.findById(id)
-				.ifPresent(log::info);
+				.ifPresent(c ->
+						log.info("{} Employees: {}", c, c.getEmployees()));
 	}
 }
