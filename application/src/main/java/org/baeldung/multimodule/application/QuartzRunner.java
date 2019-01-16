@@ -45,7 +45,7 @@ public class QuartzRunner implements CommandLineRunner
 		return TriggerBuilder.newTrigger().forJob(jobDetail)
 				.withIdentity("printer-job-trigger")
 				.withDescription("Test trigger")
-				.withSchedule(SimpleScheduleBuilder.repeatSecondlyForever(2))
+				.withSchedule(SimpleScheduleBuilder.repeatSecondlyForever(5))
 				.build();
 	}
 }

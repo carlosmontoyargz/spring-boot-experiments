@@ -24,6 +24,7 @@ public class CompanyService
 		companyRepository
 				.findById(id)
 				.ifPresent(c ->
-						log.info("{} Employees: {}", c, c.getEmployees()));
+						log.info("Company: {} --- Employees: {}",
+								c, c.getEmployees()));
 	}
 }

@@ -24,12 +24,9 @@ public class PrinterJob extends QuartzJobBean
 	protected void executeInternal(JobExecutionContext context)
 			throws JobExecutionException
 	{
-//		CompanyService companyService = (CompanyService)
-//				context.getMergedJobDataMap().get("companyService");
-//
-//		companyService.printCompany(2001);
-
-		log.info("Printer job is working!... 42 is {}",
-				() -> evenOddService.isEvenOrOdd(42));
+		int n = (int) (Math.random() * 100);
+		log.info("Printer job is working!... {} is {}",
+				() -> n,
+				() -> evenOddService.isEvenOrOdd(n));
 	}
 }
